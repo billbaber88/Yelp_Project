@@ -1,0 +1,51 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/61/cc/b4/61ccb4ce4a6a5f10aa097d9baedc7b37.jpg");
+    color: white;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.form-group {
+    margin: auto;
+    width: 50%;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+    margin:20px 0px;
+}
+
+.login {
+    color: red;
+}
+
+label {
+    font-size: 1.2em;
+    text-shadow: 1px 1px rgb(255, 0, 0);
+}
+
+h1 {
+    color: red;
+}
+
+.logreg {
+    margin-left: 925px;
+    padding-top: 10px;
+}
+
+.logreg:hover {
+    text-decoration: none;
+}
+
+
+.button {
+    text-align: center;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding: 3px;
+    text-decoration: none;
+}
