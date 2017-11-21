@@ -1,5 +1,7 @@
 body {
-    background-image: url("https://i.pinimg.com/originals/61/cc/b4/61ccb4ce4a6a5f10aa097d9baedc7b37.jpg");
+    /* background-image: url("https://i.imgur.com/KYhHpzJ.jpg"); */
+    background-image: url("http://californiadiver.com/wp-content/uploads/2015/10/FF0A5201.jpg");
+    background-size: cover;
     color: white;
 }
 
@@ -15,37 +17,50 @@ body {
 .center {
     margin: auto;
     text-align: center;
-    margin:20px 0px;
+    margin:15px 0px 0px 0px;
 }
 
 .login {
-    color: red;
+    color: #75DB82;
+    text-shadow: 1px 1px #400B6E;
 }
 
 label {
     font-size: 1.2em;
-    text-shadow: 1px 1px rgb(255, 0, 0);
+    text-shadow: 1px 1px #400B6E;
 }
 
 h1 {
-    color: red;
+    display: inline-block;
+    color: #75DB82;
+    font-family: 'Arvo';
+    text-shadow: 2px 2px #43400e;
+    font-size: 4em;
 }
 
 .logreg {
-    margin-left: 925px;
+    margin-left: 900px;
     padding-top: 10px;
+    vertical-align: middle;
 }
 
-.logreg:hover {
+.logreg > img{
+    width: 100px;
+    vertical-align: middle;
+}
+
+.logreg > a { 
     text-decoration: none;
+    text-decoration-line: none;
 }
 
 
 .button {
     text-align: center;
     border-radius: 5px;
-    background-color: red;
-    color: white;
+    background-color: #75DB82;
+    color: #400B6E;
     padding: 3px;
     text-decoration: none;
 }
+

@@ -17,9 +17,17 @@
         <div class="container" name="update_upper_left">
             <a href = "******UPDATEPROFILEBUTTON******"></a>
         </div>
+        <div class="container" name="about_info">
+            <h3>About {{ user.first_name }}</h3>
+            Location:
+            <p>{{ user.user_city }}</p>
+            Kelping Since:
+            <p>{{ user.created_at }}</p>
+        </div>
         <hr>
         <div class="container" name ="bulletin">
-            <h2></h2>
+            <h2>Recent Activity:</h2>
+            {{******** BUSINESS REVIEWS ********}}
         </div>
           
     </body>

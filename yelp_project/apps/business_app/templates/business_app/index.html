@@ -18,19 +18,22 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    
+    <!-- Style.css -->
+    <link rel="stylesheet" href="{% static '/business_app/style.css' %}">
     <title>Businesses</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
         <a class="navbar-brand" href="#">Kelp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
             aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/search">Home
@@ -55,15 +58,16 @@
                     <b>Login</b>
                 </a> |
                 <a class="button" href="#">Register</a>
-                <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
+                <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
+                <a class="anchor_tag" href="#">Logout</a>
             </div>
-            <a class="anchor_tag" href="#">Logout</a>
+            
         </div>
     </nav>
     <div>
         <!-- Search results display here -->
         <table class="table table-bordered">
-            <thead class="thead-dark">
+            <thead id="tablehead">
                 <tr>
                     <th>#</th>
                     <th>Business Name</th>

@@ -1,5 +1,7 @@
 
 /* --------------------- bus_results.html ---------- Business Results Page-------------------------  */
+/* BASE HEX CODE COLOR: #49A554 */
+
 
 * {
     padding: 0px;
@@ -81,4 +83,15 @@
 .form_adjust{
     margin-top: 15px;
     display: block;
+}
+#tablehead {
+    background-color: #92A4CD;
+}
+
+#header {
+    background-color: #182A53 !important;
+}
+
+th {
+    color: #150D34;
 }
