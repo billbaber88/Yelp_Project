@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% load static %}
     <link rel="stylesheet" href="{% static 'business_app\style.css' %}">
 
     <!-- Latest compiled and minified CSS -->
@@ -25,7 +24,11 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<<<<<<< HEAD
         <a class="navbar-brand" href="#"Kelp></a>
+=======
+        <a class="navbar-brand" href="#">Kelp</a>
+>>>>>>> master
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
             aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>
@@ -42,6 +45,13 @@
                     <a class="nav-link" href="#">Profile</a>
                 </li>
             </ul>
+            <div class="logreg">
+                <a class="login" href="#">
+                    <b>Login</b>
+                </a> |
+                <a class="button" href="#">Register</a>
+                <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
+            </div>
             <a class="anchor_tag" href="#">Logout</a>
         </div>
     </nav>
@@ -62,7 +72,9 @@
             <tbody>
                 <tr>
                     <td>{{ business.id }}</td>
-                    <td> <a class="anchor_tag" href="bus_results/{{ business.bus_name }}">{{ business.bus_name }} </a> </td>
+                    <td>
+                        <a class="anchor_tag" href="bus_results/{{ business.bus_name }}">{{ business.bus_name }} </a>
+                    </td>
                     <td>{{ business.bus_address }}</td>
                     <td>{{ business.bus_city }}</td>
                     <td>{{ business.bus_category }}</td>
@@ -73,5 +85,9 @@
         </table>
 
     </div>
+
+        <div id="footer">
+            <p>Not Copyright 2017. Kelp name and all related marks are not registed trademarks of Kelp. NEE (Non Existent Entity)</p>
+        </div>
 </body>
 </html>
