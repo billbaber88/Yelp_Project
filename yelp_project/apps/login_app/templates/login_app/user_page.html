@@ -9,6 +9,13 @@
     </head>
 
     <body>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li style="color:green">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
         <h5 style="text-align: right"><a href="/logout" style="margin: 20px">Log out</a> | <a href="/travel" style="margin: 20px">Home</a></h5>
         <div class="container" name ="header_info">          
             <h1>{{ user.first_name }}'s User Page</h1>
@@ -18,16 +25,13 @@
             <a href = "******UPDATEPROFILEBUTTON******"></a>
         </div>
         <div class="container" name="about_info">
-            <h3>About {{ user.first_name }}</h3>
-            Location:
-            <p>{{ user.user_city }}</p>
-            Kelping Since:
-            <p>{{ user.created_at }}</p>
+            <h4><u>About {{ user.first_name }}</u></h4>
+            Location:<p style ="color:blue">{{ user.user_city }}</p>
+            Kelping Since: <p style ="color:blue">{{ user.created_at }}</p>
         </div>
         <hr>
         <div class="container" name ="bulletin">
-            <h2>Recent Activity:</h2>
-            {{******** BUSINESS REVIEWS ********}}
+            <h2>Recent Activity(This is where business reviews go):</h2>
         </div>
           
     </body>

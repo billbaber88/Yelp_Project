@@ -17,9 +17,9 @@ def register(request):
             messages.error(request, each) #for each error in the list, make a message for each one.
         return redirect('/login')
     if newuser[0] == True:
-        messages.success(request, 'Well done')
+        messages.success(request, "You've registered, well done!")
         request.session['id'] = newuser[1].id
-        return redirect('/login')
+        return redirect('/login/user_page')
 
 def userlogin(request):   
     if 'id' in request.session:
@@ -69,5 +69,13 @@ def userlogout(request):
         return redirect('/login')
 
 def user_page(request):
-    return render(request, 'login_app/user_page.html' )
+    try:
+        user = User.objects.get(id=request.session['id'])
+    except User.DoesnotExit:
+        messages.info(request,"User not found")
+        return redirect('/login')
+    context= {
+            "user":User.objects.get(id=request.session['id']),
+    } 
+    return render(request, 'login_app/user_page.html',context)
 
