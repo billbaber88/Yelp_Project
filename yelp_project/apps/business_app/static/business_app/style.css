@@ -1,0 +1,13 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.anchor_tag {
+    color: red;
+    text-decoration: none;
+}
+
+.bg-red {
+    background-color: rgb(177, 44, 44);
+}
