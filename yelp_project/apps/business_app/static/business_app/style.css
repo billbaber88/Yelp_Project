@@ -3,6 +3,13 @@
     margin: 0px;
 }
 
+#wrapper {
+    width: auto;
+    height: 975px;
+    /* background-image: url("images/stonehaven.png") */
+    background-color: #f5f5f5;
+}
+
 .anchor_tag {
     color: red;
     text-decoration: none;
@@ -10,4 +17,42 @@
 
 .bg-red {
     background-color: rgb(177, 44, 44);
+}
+
+.logreg {
+    /* margin-left: 800px; */
+    /* padding-top: 10px; */
+    margin-right: 10px;
+    vertical-align: middle;
+    /* margin-bottom: -20px; */
+}
+.logreg > img{
+    width: 100px;
+    vertical-align: middle;
+}
+.logreg > a { 
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+#business_data {
+    margin: 25px;
+    display: inline-block;
+    background-color: white;
+    border: 1px ridge #ccc;
+    padding: 10px;
+}
+
+#business_data p, h5{
+    margin: 0px;
+    display: inline-block;
+}
+
+#footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-color: white;
 }

@@ -22,54 +22,56 @@
 </head>
 
 <body>
+    <div id="wrapper">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-red">
-        <a class="navbar-brand" href="#">Kelp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-            aria-expanded="false" aria-label="Toggle navigation" style="">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-red">
+            <a class="navbar-brand" href="#">Kelp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+                aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-            </ul>
-            <a class="anchor_tag" href="#">Logout</a>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                </ul>
+                <div class="logreg">
+                    <a class="login" href="#">
+                        <b>Login</b>
+                    </a> |
+                    <a class="button" href="#">Register</a>
+                    <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
+                </div>
+                <a class="anchor_tag" href="#">Logout</a>
+            </div>
+        </nav>
+        <div id="business_data">
+            <h2>{{ bus_name.bus_name }} </h2>
+            <h4> Rating: {{ bus_name.rating }} </h4>
+            <h5>Address: </h5>
+            <p> {{ bus_name.bus_address }} </p>
+            <br>
+            <h5>City: </h5>
+            <p> {{ bus_name.bus_city }} </p>
+            <br>
+            <h5>Category: </h5>
+            <p> {{ bus_name.bus_category }} </p>
         </div>
-    </nav>
-    <div>
-        <!-- Search results display here -->
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Business Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Category</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ bus_name.id }}</td>
-                    <td>{{ bus_name.bus_name }}</td>
-                    <td>{{ bus_name.bus_address }}</td>
-                    <td>{{ bus_name.bus_city }}</td>
-                    <td>{{ bus_name.bus_category }}</td>
-                    <td>{{ bus_name.rating }}</td>
-                </tr>
-            </tbody>
-        </table>
 
+        
+        <div id="footer">
+            <p>Not Copyright 2017. Kelp name and all related marks are not registed trademarks of Kelp. NEE (Non Existent Entity)</p>
+        </div>
+        
+    </div>
 
 </body>
 
