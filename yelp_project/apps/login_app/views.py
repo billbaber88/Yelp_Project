@@ -31,7 +31,7 @@ def userlogin(request):
     else:
         user = User.objects.loginval(request.POST)
         print user
-        print 50*('2')
+        print 50*('4')
         if user[0] == False:
             for each in user[1]:
                 messages.add_message(request, messages.INFO, each)
@@ -67,4 +67,7 @@ def userlogout(request):
         print request.session['id']
         del request.session['id']
         return redirect('/login')
+
+def user_page(request):
+    return render(request, 'login_app/user_page.html' )
 
