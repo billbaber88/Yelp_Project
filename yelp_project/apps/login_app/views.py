@@ -1,5 +1,70 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.db.models import Count
+from .models import User
 
-def index(request):
-    response = "Yelp Clone. Login app page.  "
-    return HttpResponse(response)
+def login_index(request):
+    print "Yelp Clone login page"
+    return render(request,'login_app/login_index.html')
+
+def register(request):
+    if request.method == 'GET':
+        return redirect ('/login')
+    newuser = User.objects.validate(request.POST)
+    print newuser
+    if newuser[0] == False:
+        for each in newuser[1]:
+            messages.error(request, each) #for each error in the list, make a message for each one.
+        return redirect('/login')
+    if newuser[0] == True:
+        messages.success(request, 'Well done')
+        request.session['id'] = newuser[1].id
+        return redirect('/login')
+
+def userlogin(request):   
+    if 'id' in request.session:
+        print 'There is a user id already logged in'
+        messages.add_message(request, messages.INFO,'There is a user already logged in')
+        return redirect('/login')
+    if request.method == 'GET':
+        return redirect('/login')
+    else:
+        user = User.objects.loginval(request.POST)
+        print user
+        print 50*('4')
+        if user[0] == False:
+            for each in user[1]:
+                messages.add_message(request, messages.INFO, each)
+            return redirect('/login')
+        if user[0] == True:
+            messages.add_message(request, messages.INFO,'Welcome, You are logged in!')
+            request.session['id'] = user[1].id
+            return redirect('/login')
+
+# Print_Ses only for testing login page:
+def print_ses(request):
+    if 'id' not in request.session:
+        messages.add_message(request, messages.INFO,'No user logged in')
+        print "No user logged in"
+        return redirect('/login')
+    else:
+        print "*********** session.id # below ************"
+        print (request.session['id'])
+        print "*******************************************"
+        context= {
+            "user":User.objects.get(id=request.session['id'])
+        }
+        return render(request, 'login_app/login_index.html', context)
+
+
+def userlogout(request):
+    if 'id' not in request.session:
+        messages.add_message(request, messages.INFO,'No user logged in')
+        print "No user logged in"
+        return redirect('/login')
+    else:
+        print "*******SessionIDLoggedIN********"
+        print request.session['id']
+        del request.session['id']
+        return redirect('/login')
+
