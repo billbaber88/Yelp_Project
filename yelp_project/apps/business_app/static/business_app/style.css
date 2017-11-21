@@ -1,3 +1,8 @@
+
+/* --------------------- bus_results.html ---------- Business Results Page-------------------------  */
+/* BASE HEX CODE COLOR: #49A554 */
+
+
 * {
     padding: 0px;
     margin: 0px;
@@ -55,4 +60,38 @@
     left: 0;
     text-align: center;
     background-color: white;
+}
+
+/* --------------------- new_bus.html ---------- Add New Business Page-------------------------  */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#wrapper {
+    width: auto;
+    height: 975px;
+    /* background-image: url("images/stonehaven.png") */
+    background-color: #f5f5f5;
+}
+    
+#add_bus_form {
+    margin: 15px;
+}
+
+.form_adjust{
+    margin-top: 15px;
+    display: block;
+}
+#tablehead {
+    background-color: #92A4CD;
+}
+
+#header {
+    background-color: #182A53 !important;
+}
+
+th {
+    color: #150D34;
 }

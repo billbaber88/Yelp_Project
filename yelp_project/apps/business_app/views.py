@@ -15,6 +15,27 @@ def bus_results(request, bus_name):
     return render(request, "business_app/bus_results.html", context)
 
 
+def new_bus(request):
+    return render(request, "business_app/new_bus.html")
+
+
+def add_bus(request): #need to add validatoin for these forms
+    Business.objects.create(bus_name=request.POST["bus_name"], bus_address=request.POST["bus_address"], bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"])
+    return redirect("/display/new_bus") #Redirect this to the new business's page.
+
+
+def admin(request):
+    context = {
+        "business_key": Business.objects.all()
+    }
+    return render(request, "business_app/admin.html", context)
+
+
+def destroy(request, bus_id):
+    Business.objects.get(id=bus_id).delete()
+    return redirect("/display/admin")
+
+
 # --------------TO DO ---------------------------
 # 1) Popup login on landing page if no username in session.
 # 2) Display image on business page.
