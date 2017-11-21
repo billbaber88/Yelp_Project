@@ -68,3 +68,6 @@ def userlogout(request):
         del request.session['id']
         return redirect('/login')
 
+def user_page(request):
+    return render(request, 'login_app/user_page.html' )
+
