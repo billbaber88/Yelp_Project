@@ -65,7 +65,6 @@ def userlogout(request):
         print "No user logged in"
         return redirect('/login')
     else:
-        print "*******SessionIDLoggedIN********"
         print request.session['id']
         messages.add_message(request, messages.INFO,'You have logged out')
         del request.session['id']
