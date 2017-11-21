@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login/Registration</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Registration/Log in</h2>
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                <li style="color:red">{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            <form action="/login/register" class="col s12" method="POST">
+                {% csrf_token %}
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="first_name" type="text" class="validate" name="first_name">
+                  <label for="first_name">First Name:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="last_name" type="text" class="validate" name="last_name">
+                  <label for="last_name">Last Name:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="text" class="validate" name="email" placeholder="name@example.com">
+                    <label for="email">Email:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="user_city" type="text" class="validate" name="user_city">
+                  <label for="user_city">What city do you live in:</label>
+                </div>
+                </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate" name="password" placeholder="At least 8 characters">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate" name="confirm_password">
+                  <label for="confirm_password">Confirm Password</label>
+                </div>
+              </div>
+              <input type="submit" value="Register" class="waves-effect waves-light btn">
+            </form>
+          </div>
+          <form class="container" action="/login/userlogin" method="POST">
+             {% csrf_token %}
+              <h2>Login</h2>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" name="email">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate" name="password">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <input type="submit" value="Login" class="waves-effect waves-light btn">
+          </form>
+          <br>
+<!-- These buttons below are mostly for debugging purposes to test login/reg on just login page -->
+          <p style = "color:purple">{{ user.first_name }} {{ user.last_name }}</p>
+          <h5 style="text-align: left"><a href="/login/print_ses">CheckUser</a></h5>
+          <h5 style="text-align: left"><a href="/login/userlogout">Logout</a></h5>
+    </body>
+</html>
