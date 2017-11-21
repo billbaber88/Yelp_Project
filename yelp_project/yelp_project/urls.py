@@ -18,5 +18,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^', include('apps.search_app.urls')), # Root route is the search page, since that's the first thing a user will see.
     url(r'^display', include('apps.business_app.urls')), 
-    url(r'^login', include('apps.login_app.urls')), #login and registration
+    url(r'^login/', include('apps.login_app.urls')), #login and registration
 ]
