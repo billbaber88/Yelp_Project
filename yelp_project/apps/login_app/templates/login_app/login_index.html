@@ -6,10 +6,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    </head>
+        <!-- {% load static %} -->
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+      </head>
     <body>
-        <div class="container">
-            <h2>Registration/Log in</h2>
+        <div class="above">
+        <form class="container" action="/login/register" class="col s12" method="POST">
+          {% csrf_token %}
+            <h2>Registration</h2>
             {% if messages %}
                 <ul class="messages">
                 {% for message in messages %}
@@ -17,10 +21,8 @@
                 {% endfor %}
                 </ul>
               {% endif %}
-            <form action="/login/register" class="col s12" method="POST">
-                {% csrf_token %}
               <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <input id="first_name" type="text" class="validate" name="first_name">
                   <label for="first_name">First Name:</label>
                 </div>
@@ -55,9 +57,10 @@
                   <label for="confirm_password">Confirm Password</label>
                 </div>
               </div>
-              <input type="submit" value="Register" class="waves-effect waves-light btn">
+              <input type="submit" value="Register" class="waves-effect waves-light btn button">
             </form>
           </div>
+            <div class="below">
           <form class="container" action="/login/userlogin" method="POST">
              {% csrf_token %}
               <h2>Login</h2>
@@ -73,12 +76,15 @@
                   <label for="password">Password</label>
                 </div>
               </div>
-              <input type="submit" value="Login" class="waves-effect waves-light btn">
+              <input type="submit" value="Login" class="waves-effect waves-light btn button">
           </form>
+        
           <br>
 <!-- These buttons below are mostly for debugging purposes to test login/reg on just login page -->
-          <p style = "color:purple">{{ user.first_name }} {{ user.last_name }}</p>
+          <!-- <p style = "color:purple">{{ user.first_name }} {{ user.last_name }}</p>
           <h5 style="text-align: left"><a href="/login/print_ses">CheckUser</a></h5>
-          <h5 style="text-align: left"><a href="/login/userlogout">Logout</a></h5>
+          <h5 style="text-align: left"><a href="/login/userlogout">Logout</a></h5> -->
+
+          </div>
     </body>
 </html>
