@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.conf.urls.static import static
 
-def index(request):
+def search(request):
     response = "Yelp Clone. Search Display app  "
-    return HttpResponse(response)
+    return render(request, 'search_app/search.html')
