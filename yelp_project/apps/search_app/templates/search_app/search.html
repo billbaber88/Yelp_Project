@@ -18,7 +18,8 @@
     <div class="logreg"><a class="login" href="#">Login</a> | <a class="button" href="#">Register</a></div>
     <!-- City form -->
     <h1 class="center">Yelp</h1>
-    <form action="#" method="post">
+    <form action="display/" method="post">
+        {% csrf_token%}
         <div class="form-group">
             <label>Please choose a city:</label>
             <select class="form-control" id="city">

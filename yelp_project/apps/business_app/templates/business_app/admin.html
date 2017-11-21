@@ -18,7 +18,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <title>Businesses</title>
+    <title>ADMIN CONSOLE</title>
 </head>
 
 <body>
@@ -71,6 +71,7 @@
                     <th>City</th>
                     <th>Category</th>
                     <th>Rating</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             {% for business in business_key %}
@@ -84,6 +85,9 @@
                     <td>{{ business.bus_city }}</td>
                     <td>{{ business.bus_category }}</td>
                     <td>{{ business.rating }}</td>
+                    <td>
+                        <a href="/display/destroy/{{business.id}}">Delete Business</a>
+                    </td>
                 </tr>
             </tbody>
             {% endfor %}
