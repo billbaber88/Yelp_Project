@@ -7,3 +7,7 @@
     color: red;
     text-decoration: none;
 }
+
+.bg-red {
+    background-color: rgb(177, 44, 44);
+}

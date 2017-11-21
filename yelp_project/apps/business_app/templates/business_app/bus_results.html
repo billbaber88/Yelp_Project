@@ -22,21 +22,55 @@
 </head>
 
 <body>
-    <h1>TESTING</h1>
-    <tbody>
-        <tr>
-            <td>{{ business.id }}</td>
-            <td>
-                <a class="anchor_tag" href="/bus_results/{{ business.bus_name }}">{{ bus_name.bus_name }} </a>
-            </td>
-            <td>{{ bus_name.bus_address }}</td>
-            <td>{{ bus_name.bus_city }}</td>
-            <td>{{ bus_name.bus_category }}</td>
-            <td>{{ bus_name.rating }}</td>
-        </tr>
-    </tbody>
 
-    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-red">
+        <a class="navbar-brand" href="#">Kelp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+            aria-expanded="false" aria-label="Toggle navigation" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+            </ul>
+            <a class="anchor_tag" href="#">Logout</a>
+        </div>
+    </nav>
+    <div>
+        <!-- Search results display here -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Business Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ bus_name.id }}</td>
+                    <td>{{ bus_name.bus_name }}</td>
+                    <td>{{ bus_name.bus_address }}</td>
+                    <td>{{ bus_name.bus_city }}</td>
+                    <td>{{ bus_name.bus_category }}</td>
+                    <td>{{ bus_name.rating }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
 </body>
 
 </html>
