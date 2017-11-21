@@ -63,7 +63,6 @@ def userlogout(request):
         print "No user logged in"
         return redirect('/login')
     else:
-        print "*******SessionIDLoggedIN********"
         print request.session['id']
         del request.session['id']
         return redirect('/login')

@@ -18,22 +18,19 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    
-    <!-- Style.css -->
-    <link rel="stylesheet" href="{% static '/business_app/style.css' %}">
-    <title>Businesses</title>
+    <title>Add A New Business</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Kelp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
             aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/search">Home
@@ -58,46 +55,35 @@
                     <b>Login</b>
                 </a> |
                 <a class="button" href="#">Register</a>
-                <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                <a class="anchor_tag" href="#">Logout</a>
+                <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
             </div>
-            
+            <a class="anchor_tag" href="#">Logout</a>
         </div>
     </nav>
-    <div>
-        <!-- Search results display here -->
-        <table class="table table-bordered">
-            <thead id="tablehead">
-                <tr>
-                    <th>#</th>
-                    <th>Business Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Category</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            {% for business in business_key %}
-            <tbody>
-                <tr>
-                    <td>{{ business.id }}</td>
-                    <td>
-                        <a class="anchor_tag" href="bus_results/{{ business.bus_name }}">{{ business.bus_name }} </a>
-                    </td>
-                    <td>{{ business.bus_address }}</td>
-                    <td>{{ business.bus_city }}</td>
-                    <td>{{ business.bus_category }}</td>
-                    <td>{{ business.rating }}</td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
-
+    <div id="add_bus_form">
+        <form  action="add_bus" method="POST">
+            {% csrf_token %}
+            <input class="form_adjust" type="text" name="bus_name" placeholder="Business Name">
+            <input class="form_adjust" type="text" name="bus_address" placeholder="Business Address">
+            <select class="form_adjust" name="bus_city" >
+                <option value="atlantis">Atlantis</option>
+                <option value="deadsea">Dead Sea</option>
+                <option value="mariana">Mariana Trench</option>
+            </select>
+            <select class="form_adjust" name="bus_category" >
+                <option value="Restaraunts">Restaurants</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Entertainment</option>
+            </select>
+            <input class="form_adjust" type="submit" value="Create New Business">
+            <!-- <button type="button" class="btn btn-primary">Create New Business</button> -->
+        </form>
+       
     </div>
 
-    <div id="footer">
-        <p>Not Copyright 2017. Kelp name and all related marks are not registed trademarks of Kelp. NEE (Non Existent Entity)</p>
-    </div>
+        <div id="footer">
+            <p>Not Copyright 2017. Kelp name and all related marks are not registed trademarks of Kelp. NEE (Non Existent Entity)</p>
+        </div>
 </body>
 
 </html>
