@@ -18,14 +18,6 @@ def bus_results(request, bus_id):
     }
     return render(request, "business_app/bus_results.html", context)
 
-# This view displays all the businesses in the DB
-def all_bus(request):
-    context = {
-        "business_key" : Business.objects.all()
-    }
-    return render(request, "business_app/all_bus.html", context)
-
-
 # Form to create a new Business
 def new_bus(request):
     return render(request, "business_app/new_bus.html")
