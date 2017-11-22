@@ -60,14 +60,11 @@ def print_ses(request):
 
 
 def userlogout(request):
-    if 'id' not in request.session:
-        messages.add_message(request, messages.INFO,'No user logged in')
-        print "No user logged in"
-        return redirect('/login')
-    else:
-        print request.session['id']
+    try:
         messages.add_message(request, messages.INFO,'You have logged out')
-        del request.session['id']
+        del request.session
+        return redirect('/search')
+    except ValueError, KeyError:
         return redirect('/login')
 
 def show(request, user_id):

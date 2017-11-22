@@ -27,10 +27,14 @@ body {
     vertical-align: middle;
 }
 
-#seal {
+.seal {
     width: 200px;
     vertical-align: middle;
     margin-left: -125px;
+}
+
+.seal2 {
+    width: 200px;
 }
 
 .center {

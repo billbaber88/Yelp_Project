@@ -27,6 +27,14 @@
     max-width: 100%;
 }
 
+#wrapper3 {
+    height: auto !important;
+    background-image: url("http://fc01.deviantart.net/fs70/f/2010/199/1/0/The_Kelp_Forest_by_FranceHopper.jpg");
+    background-size: cover;
+    max-width: 100%;
+}
+
+
 .anchor_tag {
     color: red;
     text-decoration: none;
@@ -114,13 +122,23 @@
     margin: 25px;
     border: solid 1px #182A53;
     padding: 10px;
-    background-color: rgba(190, 206, 231, 0.74);
+    background-color: rgba(190, 206, 231, 0.356);
     border-radius: 15px;
 }
+
+.comments2 {
+    margin: 25px;
+    border: solid 1px rgb(24, 83, 37);
+    padding: 5px;
+    background-color: rgba(251, 255, 252, 0.479);
+    border-radius: 15px;
+}
+
 
 .comments > h2 {
     color: #7B1E19;
 }
+
 
 .rating {
     margin-left: 25%;
