@@ -26,7 +26,7 @@
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-red">
-            <a class="navbar-brand" href="#">Kelp</a>
+            <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
                 aria-expanded="false" aria-label="Toggle navigation" style="">
                 <span class="navbar-toggler-icon"></span>
@@ -43,33 +43,36 @@
                         <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/display">Businesses</a>
+                        <a class="nav-link" href="/display/all_bus">All Businesses</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/display/admin">Admin Console</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/display/new_bus">Add A Business</a>
+                    </li>
                 </ul>
                 <div class="logreg">
-                    <a class="login" href="#">
+                    <a class="login" href="/login">
                         <b>Login</b>
                     </a> |
-                    <a class="button" href="#">Register</a>
+                    <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
                 </div>
                 <a class="anchor_tag" href="#">Logout</a>
             </div>
         </nav>
         <div id="business_data">
-            <h2>{{ bus_name.bus_name }} </h2>
-            <h4> Rating: {{ bus_name.rating }} </h4>
+            <h2>{{ bus_id.bus_name }} </h2>
+            <h4> Rating: {{ bus_id.rating }} </h4>
             <h5>Address: </h5>
-            <p> {{ bus_name.bus_address }} </p>
+            <p> {{ bus_id.bus_address }} </p>
             <br>
             <h5>City: </h5>
-            <p> {{ bus_name.bus_city }} </p>
+            <p> {{ bus_id.bus_city }} </p>
             <br>
             <h5>Category: </h5>
-            <p> {{ bus_name.bus_category }} </p>
+            <p> {{ bus_id.bus_category }} </p>
         </div>
 
 
