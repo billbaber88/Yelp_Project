@@ -27,7 +27,7 @@
     <div id="wrapper2">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark " id="header">
-            <a class="navbar-brand" href="#">Kelp</a>
+            <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
                 aria-expanded="false" aria-label="Toggle navigation" style="">
                 <span class="navbar-toggler-icon"></span>
@@ -56,31 +56,27 @@
                     </a> |
                     <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                    <a class="anchor_tag" href="#">Logout</a>
+                    <a class="anchor_tag" href="/userlogout">Logout</a>
                 </div>
-
             </div>
         </nav>
 
-        {% for business in business_key %}
-        <div class="posting">
-            <!-- Bus.Prof Pic goes below -->
-            <img class="ib busProfThumb" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/African_Union_flag.svg/600px-African_Union_flag.svg.png">
-            <div class="ib info">
-                <h3>
-                    <a class="anchor_tag redText" href="bus_results/{{ business.id }}">{{ business.bus_name }} </a>
-                </h3>
-                <h4>{{ business.bus_category }}</h4>
-            </div>
-            <div class="ib address">
-                <h4 class="redText">{{ business.rating }}/5</h4>
-                <h4>{{ business.bus_address }}</h4>
-            </div>
-            <p>
-                <b>{{ business.description }}</b>
-            </p>
+        <div id="review_form">
+            <h3>Write a review for {{ business_key.bus_name }}</h3>
+            <form action="/display/add_review/{{ business_key.id }}" method="POST">
+                {% csrf_token %}
+                <textarea name="review_text" cols="30" rows="10" placeholder="Write Your Review Here!"></textarea>
+                <input type="number" name="rating" placeholder="Rate from 1-5">
+                <input class="submit_seal" type="image" src="{% static 'search_app\images\seal_logo2_white.png' %}" alt="Submit" >
+            </form>
         </div>
+        {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
         {% endfor %}
+        </ul>
+      {% endif %}
     </div>
 
     <div id="footer">

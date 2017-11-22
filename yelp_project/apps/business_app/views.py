@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from models import Business
+from models import Business, Review
+from ..login_app.models import User #Imports User table from Login app
+
 
 # Returns a list of businesses that match the users search paramaters
 def index(request):
-    print request.POST["bus_category"]
     context = {
         "business_key" : Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]) #.filter(bus_category=request.POST["bus_category"])
     }
@@ -14,9 +15,18 @@ def index(request):
 # This view returns the business that the user clicked on.
 def bus_results(request, bus_id):
     context = {
-        "bus_id" : Business.objects.get(id=bus_id)
+        "bus_id" : Business.objects.get(id=bus_id),
+        "rating_key" : Review.objects.filter(business=Business.objects.get(id=bus_id))
     }
-    return render(request, "business_app/bus_results.html", context)
+    count = 0
+    sum = 0
+    
+    for x in context["rating_key"]:
+        sum += x.rating
+        count += 1
+    avg = sum/count
+ 
+    return render(request, "business_app/bus_results.html", context) #create dict to pass in 2 variables
 
 # Form to create a new Business
 def new_bus(request):
@@ -39,15 +49,36 @@ def add_bus(request):
         return redirect("/display/new_bus")
 
 
+def write_review(request, bus_id):
+    context = {
+        "business_key" : Business.objects.get(id=bus_id)
+    }
+    return render(request, "business_app/write_review.html", context)
+
+
+def add_review(request, bus_id):
+    # Need to have validation here to ensure no SQL injection. and that no empty values
+    Review.objects.create(comment=request.POST["review_text"], rating=request.POST["rating"], business=Business.objects.get(id=bus_id), user=User.objects.get(id=request.session["id"])) #put requst.session username here)
+    
+    # messages.sucess["new_review"] = "Thanks for your review!"
+    return redirect("/display/write_review/{}".format(bus_id))
+
+
 def admin(request):
     context = {
-        "business_key": Business.objects.all()
+        "business_key": Business.objects.all(),
+        "rating_key" : Review.objects.all()
     }
     return render(request, "business_app/admin.html", context)
 
 
 def destroy(request, bus_id):
     Business.objects.get(id=bus_id).delete()
+    return redirect("/display/admin")
+
+
+def destroy_review(request, review_id):
+    Review.objects.get(id=review_id).delete()
     return redirect("/display/admin")
 
 

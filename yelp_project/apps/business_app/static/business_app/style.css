@@ -71,7 +71,10 @@
 
 #business_data p, h5{
     margin: 0px;
-    display: inline-block;
+    display: inline;
+}
+#business_data h4{
+    margin-top: 10px;
 }
 
 #footer {
@@ -112,10 +115,6 @@
 
 .comments > h2 {
     color: #7B1E19;
-}
-
-.rating {
-    margin-left: 25%;
 }
 
 .posting {
@@ -189,4 +188,20 @@ th {
 .messages{
     color: red;
     list-style: none;
+}
+
+/* --------------------- write_review.html ---------- Write a Review for a Business Page-------------------------  */
+
+#review_form > h3{
+    color: white;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#review_form {
+    margin: 50px 775px;
+}
+
+.submit_seal {
+    width: 75px;
 }

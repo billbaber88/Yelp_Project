@@ -40,7 +40,7 @@ def userlogin(request):
         if user[0] == True:
             messages.add_message(request, messages.INFO,'Welcome, You are logged in!')
             request.session['id'] = user[1].id
-            return redirect('/login')
+            return redirect('/search')
 
 # Print_Ses only for testing login page:
 
