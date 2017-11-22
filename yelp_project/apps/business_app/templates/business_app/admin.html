@@ -24,7 +24,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Kelp</a>
+        <a class="navbar-brand" href="/search">Kelp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
             aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                     <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/display">Businesses</a>
+                    <a class="nav-link" href="/display/all_bus">All Businesses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/display/admin">Admin Console</a>
@@ -51,10 +51,10 @@
                 </li>
             </ul>
             <div class="logreg">
-                <a class="login" href="#">
+                <a class="login" href="/login">
                     <b>Login</b>
                 </a> |
-                <a class="button" href="#">Register</a>
+                <a class="button" href="/login">Register</a>
                 <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
             </div>
             <a class="anchor_tag" href="#">Logout</a>
@@ -79,7 +79,7 @@
                 <tr>
                     <td>{{ business.id }}</td>
                     <td>
-                        <a class="anchor_tag" href="bus_results/{{ business.bus_name }}">{{ business.bus_name }} </a>
+                        <a class="anchor_tag" href="bus_results/{{ business.id }}">{{ business.bus_name }} </a>
                     </td>
                     <td>{{ business.bus_address }}</td>
                     <td>{{ business.bus_city }}</td>

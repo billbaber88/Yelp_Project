@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Arvo:400i" rel="stylesheet">
-    <title>Document</title>
+    <title>Welcome to Kelp</title>
 </head>
 
 <body>
@@ -57,10 +57,35 @@
                 <option value="entertainment">Entertainment</option>
             </select>
         </div>
+
+        <!-- City form -->
         <div class="center">
-            <input class="button" type="Submit" value="Submit">
+            <h1 >Kelp</h1>
         </div>
-    </form>
+        <form action="display/" method="post">
+            {% csrf_token%}
+            <div class="form-group">
+                <label>Please choose a city:</label>
+                <select class="form-control" name="bus_city" id="city">
+                    <option value="Atlantis">Atlantis</option>
+                    <option value="Dead Sea">Dead Sea</option>
+                    <option value="Mariana">Mariana Trench</option>
+                </select>
+            </div>
+            <br>
+            <!-- business category form -->
+            <div class="form-group">
+                <label>Please choose a business category:</label>
+                <select class="form-control" name="bus_category" id="category">
+                    <option value="Restaurants">Restaurants</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+            </div>
+            <div class="center">
+                <input class="button" type="Submit" value="Submit">
+            </div>
+        </form>
 
 
 

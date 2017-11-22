@@ -18,19 +18,22 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <title>Add A New Business</title>
+    
+    <!-- Style.css -->
+    <link rel="stylesheet" href="{% static '/business_app/style.css' %}">
+    <title>Businesses</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
         <a class="navbar-brand" href="/search">Kelp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
             aria-expanded="false" aria-label="Toggle navigation" style="">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/search">Home
@@ -55,36 +58,40 @@
                     <b>Login</b>
                 </a> |
                 <a class="button" href="/login">Register</a>
-                <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
+                <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
+                <a class="anchor_tag" href="#">Logout</a>
             </div>
-            <a class="anchor_tag" href="#">Logout</a>
+            
         </div>
     </nav>
-    <div id="add_bus_form">
-        <form action="add_bus" method="POST">
-            {% csrf_token %}
-            <input class="form_adjust" type="text" name="bus_name" placeholder="Business Name">
-            <input class="form_adjust" type="text" name="bus_address" placeholder="Business Address">
-            <select class="form_adjust" name="bus_city">
-                <option value="Atlantis">Atlantis</option>
-                <option value="Dead Sea">Dead Sea</option>
-                <option value="Mariana">Mariana Trench</option>
-            </select>
-            <select class="form_adjust" name="bus_category">
-                <option value="Restaurants">Restaurants</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Entertainment">Entertainment</option>
-            </select>
-            <input class="form_adjust" type="submit" value="Create New Business">
-            {% if messages %}
-            <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }}</li>
+    <div>
+        <!-- Search results display here -->
+        <table class="table table-bordered">
+            <thead id="tablehead">
+                <tr>
+                    <th>#</th>
+                    <th>Business Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            {% for business in business_key %}
+            <tbody>
+                <tr>
+                    <td>{{ business.id }}</td>
+                    <td>
+                        <a class="anchor_tag" href="bus_results/{{ business.id }}">{{ business.bus_name }} </a>
+                    </td>
+                    <td>{{ business.bus_address }}</td>
+                    <td>{{ business.bus_city }}</td>
+                    <td>{{ business.bus_category }}</td>
+                    <td>{{ business.rating }}</td>
+                </tr>
+            </tbody>
             {% endfor %}
-            </ul>
-          {% endif %}
-        </form>
-
+        </table>
 
     </div>
 

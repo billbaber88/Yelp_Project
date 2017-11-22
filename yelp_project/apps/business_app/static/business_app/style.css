@@ -179,3 +179,8 @@
 th {
     color: #150D34;
 }
+
+.messages{
+    color: red;
+    list-style: none;
+}
