@@ -15,8 +15,9 @@
 #wrapper {
     width: auto;
     height: auto !important;
-    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/stonehaven.png");
+    background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/169337.jpg");
     background-color: #f5f5f5;
+    background-size: cover;
 }
 
 #wrapper2 {
@@ -105,13 +106,15 @@
     margin: 25px;
     border: solid 1px #182A53;
     padding: 10px;
+    background-color: rgba(190, 206, 231, 0.74);
+    border-radius: 15px;
 }
 
 .comments > h2 {
     color: #7B1E19;
 }
 
-#rating {
+.rating {
     margin-left: 25%;
 }
 
@@ -137,7 +140,10 @@
 
 .info {
     width: 30%;
-    margin-right: 35%
+    margin-right: 30%;
+    margin-top: 10px;
+    vertical-align: top;
+
 }
 
 .redText {
