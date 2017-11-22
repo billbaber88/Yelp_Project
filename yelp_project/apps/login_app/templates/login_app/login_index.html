@@ -1,26 +1,180 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Login/Registration</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-        <!-- {% load static %} -->
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-      </head>
-    <body>
-        <div class="above">
-          {% csrf_token %}
+
+<head>
+  <meta charset="utf-8">
+  <title>Login/Registration</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+  <script>
+  $(document).ready(function(){
+      $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+        
+        var $this = $(this),
+            label = $this.prev('label');
+      
+          if (e.type === 'keyup') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight');
+              } else {
+                label.addClass('active highlight');
+              }
+          } else if (e.type === 'blur') {
+            if( $this.val() === '' ) {
+              label.removeClass('active highlight'); 
+            } else {
+              label.removeClass('highlight');   
+            }   
+          } else if (e.type === 'focus') {
             
-            {% if messages %}
-                <ul class="messages">
-                {% for message in messages %}
-                <li style="color:red">{{ message }}</li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-            <form class="container" action="/login/register" class="col s12" method="POST">
+            if( $this.val() === '' ) {
+              label.removeClass('highlight'); 
+            } 
+            else if( $this.val() !== '' ) {
+              label.addClass('highlight');
+            }
+          }
+      
+      });
+      
+      $('.tab a').on('click', function (e) {
+        
+        e.preventDefault();
+        console.log("hellllloooooo")
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        
+        target = $(this).attr('href');
+      
+        $('.tab-content > div').not(target).hide();
+        
+        $(target).fadeIn(600);
+        
+      });
+  });
+    </script>
+</head>
+
+<body>
+<!-- LOGOUT BUTTON FOR TESTING -->
+  <a href="/login/userlogout">LOGOUT</a>
+  <div class="above">
+    {% csrf_token %} {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li style="color:red">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="form">
+      <ul class="tab-group">
+        <li class="tab active">
+          <a href="#signup">Sign Up</a>
+        </li>
+        <li class="tab">
+          <a href="#login">Log In</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="signup">
+          <h1>Sign Up for Free</h1>
+
+          <form action="/login/register" method="post">
+            {% csrf_token %}
+              <div class="field-wrap">
+                <label>
+                  First Name
+                  <span class="req">*</span>
+                </label>
+                <input type="text" name="first_name"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  Last Name
+                  <span class="req">*</span>
+                </label>
+                <input type="text" name="last_name"/>
+              </div>
+
+            <div class="field-wrap">
+                <label>
+                  City
+                  <span class="req">*</span>
+                </label>
+                <input type="text" name="user_city"/>
+              </div>
+
+            <div class="field-wrap">
+              <label>
+                Email Address
+                <span class="req">*</span>
+              </label>
+              <input type="email" name="email"/>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Set A Password
+                <span class="req">*</span>
+              </label>
+              <input type="password" name="password"/>
+            </div>
+
+            <div class="field-wrap">
+                <label>
+                  Confirm Password
+                  <span class="req">*</span>
+                </label>
+                <input type="password" name="confirm_password"/>
+              </div>
+
+            <button type="submit" class="button button-block" />Get Started</button>
+
+          </form>
+
+        </div>
+
+<!-- ############LOGIN############ -->
+        <div id="login">
+          <h1>Welcome Back!</h1>
+          <form action="/login/userlogin" method="post">
+            {% csrf_token %}
+            <div class="field-wrap">
+              <label>
+                Email Address
+                <span class="req">*</span>
+              </label>
+              <input type="email" name="email"/>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Password
+                <span class="req">*</span>
+              </label>
+              <input type="password" class="validate" name="password"/>
+            </div>
+
+            <button class="button button-block" />Log In</button>
+
+          </form>
+
+        </div>
+
+      </div>
+      <!-- tab-content -->
+
+    </div>
+    <!-- /form -->
+
+
+    <!-- <form class="container" action="/login/register" class="col s12" method="POST">
               <h2>Registration</h2>
                 {% csrf_token %}
               <div class="row">
@@ -79,12 +233,13 @@
                 </div>
               </div>
               <input type="submit" value="Login" class="waves-effect waves-light btn button">
-          </form>
-        
-          <br>
-<!-- These buttons below are mostly for debugging purposes to test login/reg on just login page -->
-          <!-- <p style = "color:purple">{{ user.first_name }} {{ user.last_name }}</p>
+          </form> -->
+
+    <br>
+    <!-- These buttons below are mostly for debugging purposes to test login/reg on just login page -->
+    <!-- <p style = "color:purple">{{ user.first_name }} {{ user.last_name }}</p>
           <h5 style="text-align: left"><a href="/login/print_ses">CheckUser</a></h5>
           <h5 style="text-align: left"><a href="/login/userlogout">Logout</a></h5> -->
-    </body>
+</body>
+
 </html>
