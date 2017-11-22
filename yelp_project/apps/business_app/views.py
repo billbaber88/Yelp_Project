@@ -26,7 +26,7 @@ def bus_results(request, bus_id):
         count += 1
     avg = sum/count
  
-    return render(request, "business_app/bus_results.html", context) #create dict to pass in 2 variables
+    return render(request, "business_app/bus_results.html", {"context": context, "avg": avg}) #create dict to pass in 2 variables
 
 # Form to create a new Business
 def new_bus(request):
