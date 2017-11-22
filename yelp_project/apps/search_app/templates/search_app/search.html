@@ -36,28 +36,31 @@
 
     </div>
     </div>
-    <!-- City form -->
-    <form action="display/" method="post">
-        {% csrf_token%}
-        <div class="form-group">
-            <label>Please choose a city:</label>
-            <select class="form-control" id="city">
-                <option value="atlantis">Atlantis</option>
-                <option value="deadsea">Dead Sea</option>
-                <option value="mariana">Mariana Trench</option>
-            </select>
-        </div>
-        <br>
-        <!-- business category form -->
-        <div class="form-group">
-            <label>Please choose a business category:</label>
-            <select class="form-control" id="category">
-                <option value="restaurants">Restaurants</option>
-                <option value="shopping">Shopping</option>
-                <option value="entertainment">Entertainment</option>
-            </select>
-        </div>
 
+        <form action="display/" method="post">
+            {% csrf_token%}
+            <div class="form-group">
+                <label>Please choose a city:</label>
+                <select class="form-control" name="bus_city" id="city">
+                    <option value="Atlantis">Atlantis</option>
+                    <option value="Dead Sea">Dead Sea</option>
+                    <option value="Mariana">Mariana Trench</option>
+                </select>
+            </div>
+            <br>
+            <!-- business category form -->
+            <div class="form-group">
+                <label>Please choose a business category:</label>
+                <select class="form-control" name="bus_category" id="category">
+                    <option value="Restaurants">Restaurants</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+            </div>
+            <div class="center">
+                <input class="button" type="Submit" value="Submit">
+            </div>
+        </form>
 
 
 
