@@ -64,6 +64,7 @@ h1 {
     border: 2px solid #182A53;
     border-radius: 10px;
     width: 9%;
+    text-align: center;
 }
 
 .logreg > img{
