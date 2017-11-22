@@ -6,7 +6,7 @@ urlpatterns = [
     url(r'^register$', views.register),
     url(r'^userlogin$', views.userlogin),
     url(r'^userlogout$', views.userlogout),
+    url(r'^user/(?P<user_id>\d+)$', views.show),
     url(r'^print_ses$', views.print_ses),
-    url(r'^user_page/(?P<id>\d+)$', views.user_page),
-
+    
 ]

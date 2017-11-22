@@ -2,32 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Popular Secrets</title>
+        <title>User Page</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     </head>
 
     <body>
-        <h5 style="text-align: right"><a href="/logout" style="margin: 20px">Log out</a> | <a href="/travel" style="margin: 20px">Home</a></h5>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li style="color:green">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        <h5 style="text-align: right"><a href="/login/userlogout" style="margin: 20px">Log out</a> | <a href="/display" style="margin: 20px">Home</a></h5>
         <div class="container" name ="header_info">          
-            <h1>{{ user.first_name }}'s User Page</h1>
+            <h1>{{ user.first_name }} {{ user.last_name }}'s User Page</h1>
             <h3>{{ user.user_city }}</h3>   
          </div>
         <div class="container" name="update_upper_left">
             <a href = "******UPDATEPROFILEBUTTON******"></a>
+            <h4><u>About {{ user.first_name }}</u>:</h4>
         </div>
         <div class="container" name="about_info">
-            <h3>About {{ user.first_name }}</h3>
-            Location:
-            <p>{{ user.user_city }}</p>
-            Kelping Since:
-            <p>{{ user.created_at }}</p>
+            <table>
+                <tr>
+                    <p>Location: <span style ="color:blue">{{ user.user_city }}</span></p>
+                    <p>Kelping Since: <span style ="color:blue">{{ user.created_at }}</span></p>
+                </tr>
+            </table>
         </div>
         <hr>
         <div class="container" name ="bulletin">
-            <h2>Recent Activity:</h2>
-            {{******** BUSINESS REVIEWS ********}}
+            <h2>Recent Activity(This is where business reviews go):</h2>
         </div>
           
     </body>
