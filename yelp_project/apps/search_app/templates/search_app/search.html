@@ -16,13 +16,17 @@
 
 <body>
     <div class="wrapper">
-        <!-- Add links to login and register -->
-    <div class="logreg">
-        <a class="login" href="/login">
-            <b>Login</b>
-        </a> |
-        <a class="button" href="/login">Register</a>
-    </div>
+            <div class="logreg">
+                    <a class="login" href="/login">
+                        <b>Login</b>
+                    </a> 
+                    <b class="login">|</b>
+                    <a class="login" href="/login"><b>Register</b></a>
+                </div>
+        <div class="logreg">
+            <a class="login" href="/login/userlogout"><b>Logout</b></a>
+        </div>
+        
     <!-- kelp white background blue border radius
     inside div use margin left to set seat 
     on top of KELP -->
@@ -32,7 +36,7 @@
         <h1 class="ib">
             <b>KELP</b>
         </h1>
-        <img id="seal" src="{% static 'search_app\images\seal_logo2_white.png' %}">
+        <img class="seal" src="{% static 'search_app\images\seal_logo2_white.png' %}">
 
     </div>
     </div>
