@@ -23,5 +23,8 @@ git add .
 git commit -m "<Message>"
 git push
 
-# Don't forget to leave the branch you've been working on and start a new branch.
+# Don't forget to leave the branch you've been working on as well as the master branch and start a new branch!
 git branch <new_name>
+
+#When changes to .gitignore have been made run below command to remove files already uploaded to git.
+git rm -r --cached .
