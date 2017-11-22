@@ -19,6 +19,13 @@
     background-color: #f5f5f5;
 }
 
+#wrapper2 {
+    height: auto !important;
+    background-image: url("http://awesomeocean.com/wp-content/uploads/2016/11/feature-credit-NRDC-via-Flickr.jpg");
+    background-size: cover;
+    max-width: 100%;
+}
+
 .anchor_tag {
     color: red;
     text-decoration: none;
@@ -108,18 +115,44 @@
     margin-left: 25%;
 }
 
+.posting {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 10px;
+    border: black solid 2px;
+    /* background-color: rgba(87, 158, 52, 0.767); */
+    background-color: rgba(146, 168, 205, 0.534);
+    border-radius: 15px;
+}
+
+.posting > p{
+    padding: 10px;
+}
+.busProfThumb {
+    width: 10%;
+    border-radius: 2px;
+    margin: 10px;
+    vertical-align: top;
+}
+
+.info {
+    width: 30%;
+    margin-right: 35%
+}
+
+.redText {
+    color: #7B1E19;
+}
+
+.address {
+    width: 20%;
+    margin: 10px;
+}
 /* --------------------- new_bus.html ---------- Add New Business Page-------------------------  */
 
 * {
     padding: 0px;
     margin: 0px;
-}
-
-#wrapper {
-    width: auto;
-    height: 975px;
-    /* background-image: url("images/stonehaven.png") */
-    background-color: #f5f5f5;
 }
     
 #add_bus_form {

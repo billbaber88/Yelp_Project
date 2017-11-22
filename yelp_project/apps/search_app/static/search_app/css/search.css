@@ -9,9 +9,28 @@ body {
     width: 100%;
 }
 
+.ib {
+    display: inline-block;
+}
+
 .form-group {
     margin: auto;
     width: 50%;
+}
+
+#kelp{
+    width: 20%;
+    background-color: rgba(255, 255, 255, 0.692);
+    border: 2px solid #182A53;
+    border-radius: 10px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+#seal {
+    width: 200px;
+    vertical-align: middle;
+    margin-left: -125px;
 }
 
 .center {
@@ -21,8 +40,7 @@ body {
 }
 
 .login {
-    color: #75DB82;
-    text-shadow: 1px 1px #400B6E;
+    color: rgb(51, 102, 27);
 }
 
 label {
@@ -30,18 +48,22 @@ label {
     text-shadow: 1px 1px #400B6E;
 }
 
+/* Added the color to h1 that is same color as bg of post section */
 h1 {
     display: inline-block;
-    color: #75DB82;
+    color: rgb(51, 102, 27);
     font-family: 'Arvo';
     text-shadow: 2px 2px #43400e;
     font-size: 4em;
 }
 
 .logreg {
-    margin-left: 900px;
-    padding-top: 10px;
-    vertical-align: middle;
+    margin-left: 90%;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.692);
+    border: 2px solid #182A53;
+    border-radius: 10px;
+    width: 6.5%;
 }
 
 .logreg > img{
@@ -58,8 +80,8 @@ h1 {
 .button {
     text-align: center;
     border-radius: 5px;
-    background-color: #75DB82;
-    color: #400B6E;
+    background-color: rgb(51, 102, 27);
+    color: white;
     padding: 3px;
     text-decoration: none;
 }
