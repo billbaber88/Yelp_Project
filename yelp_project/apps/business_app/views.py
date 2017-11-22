@@ -29,7 +29,7 @@ def add_bus(request):
     errors = Business.objects.new_bus_validator(request.POST)
 
     if len(errors) <= 0:
-        Business.objects.create(bus_name=request.POST["bus_name"], bus_address=request.POST["bus_address"], bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"])
+        Business.objects.create(bus_name=request.POST["bus_name"], bus_address=request.POST["bus_address"], bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"], description=request.POST["description"])
         last_bus = Business.objects.last()
 
         return redirect("/display/bus_results/{}".format(last_bus.id)) 

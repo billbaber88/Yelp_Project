@@ -69,7 +69,7 @@
             <img class="ib busProfThumb" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/African_Union_flag.svg/600px-African_Union_flag.svg.png">
             <div class="ib info">
                 <h3>
-                    <a class="anchor_tag redText" href="bus_results/{{ business.bus_name }}">{{ business.bus_name }} </a>
+                    <a class="anchor_tag redText" href="bus_results/{{ business.id }}">{{ business.bus_name }} </a>
                 </h3>
                 <h4>{{ business.bus_category }}</h4>
             </div>
@@ -78,7 +78,7 @@
                 <h4>{{ business.bus_address }}</h4>
             </div>
             <p>
-                <b>Is there any way we can input the first 100 words of the users comment?</b>
+                <b>{{ business.description }}</b>
             </p>
         </div>
         {% endfor %}

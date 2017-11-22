@@ -63,7 +63,7 @@
         <div id="business_data">
             <!-- BUSINESS PROFILE IMAGE -->
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/African_Union_flag.svg/600px-African_Union_flag.svg.png">
-            <h2>{{ bus_name.bus_name }} </h2>
+            <h2>{{ bus_id.bus_name }} </h2>
             <h5>Address: </h5>
             <p> {{ bus_id.bus_address }} </p>
             <br>
@@ -71,8 +71,14 @@
             <p> {{ bus_id.bus_city }} </p>
             <br>
             <h5>Category: </h5>
-            <p> {{ bus_name.bus_category }} </p>
-            <h4> Rating: {{ bus_name.rating }}</h4> 
+            <p> {{ bus_id.bus_category }} </p>
+            <br>
+            <h5> Rating: </h5> 
+            <p> {{ bus_id.rating }} </p>
+            <br>
+            <h5>Description</h5>
+            <p>{{ bus_id.description|truncatechars:100 }}</p>
+
         </div>
 
         <div id="userImgs">

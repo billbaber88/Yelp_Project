@@ -18,6 +18,7 @@ class Business(models.Model):
     bus_address = models.CharField(max_length=255)
     bus_city = models.TextField(max_length=100)
     bus_category = models.TextField(max_length=255)
+    description = models.TextField(max_length=1000, null=True)
     comment = models.TextField(null=True)
     rating = models.PositiveSmallIntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
