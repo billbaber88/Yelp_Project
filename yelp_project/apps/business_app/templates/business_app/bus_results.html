@@ -18,23 +18,23 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    
+
     <!-- Style.css -->
     <link rel="stylesheet" href="{% static '/business_app/style.css' %}">
-        <title>Business Results</title>
+    <title>Business Results</title>
 </head>
 
 <body>
     <div id="wrapper">
 
         <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark " id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark " id="header">
             <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
                 aria-expanded="false" aria-label="Toggle navigation" style="">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -55,7 +55,7 @@
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
                     <a class="anchor_tag" href="#">Logout</a>
                 </div>
-                
+
             </div>
         </nav>
 
@@ -73,7 +73,7 @@
             <h5>Category: </h5>
             <p> {{ bus_id.bus_category }} </p>
             <br>
-            <h5> Rating: </h5> 
+            <h5> Rating: </h5>
             <p> {{ bus_id.rating }} </p>
             <br>
             <h5>Description</h5>
@@ -82,38 +82,46 @@
         </div>
 
         <div id="userImgs">
-                <!-- IMAGES WILL BE IN A FOR LOOP. I'M THINKING DESC SHOWING ONLY THE THREE MOST RECENT -->
-                <img class="imgSpread" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
-                <img class="imgSpread" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
-                <img class="imgSpread" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
+            <!-- IMAGES WILL BE IN A FOR LOOP. I'M THINKING DESC SHOWING ONLY THE THREE MOST RECENT -->
+            <img class="imgSpread" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
+            <img class="imgSpread" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
+            <img class="imgSpread" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
         </div>
 
         <!-- FOR TITLE IN TITLES -->
         <!-- ORDER BY DESCENDING FOR AS MANY AS WE HAVE -->
         <div class="comments">
-            <h2 class="ib">USER.TITLE OF REVIEW #LAST</h1>     
-            <h2 class="ib rating">Rating: USER.RATING/5</h1>
-            <p>USER.COMMENT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div>
-                    <img class="imgThumbs" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
-                    <img class="imgThumbs" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
-                    <img class="imgThumbs" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
-            </div>
+            <h2 class="ib">USER.TITLE OF REVIEW #LAST</h1>
+                <h2 class="ib rating">Rating: USER.RATING/5</h1>
+                    <p>USER.COMMENT
+                        <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.</p>
+                    <div>
+                        <img class="imgThumbs" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
+                        <img class="imgThumbs" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
+                        <img class="imgThumbs" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
+                    </div>
         </div>
 
         <!-- THIS DIV BELOW IS TO SIMULATE MULTIPLE COMMENTS
         IT WILL BE ERASED WHEN WE INPUT OUR FOR LOOP -->
         <div class="comments">
-                <h2 class="ib">USER.TITLE OF REVIEW #LAST-1</h1>     
+            <h2 class="ib">USER.TITLE OF REVIEW #LAST-1</h1>
                 <h2 class="ib rating">Rating: USER.RATING/5</h1>
-                <p>THIS COMMENT SECTION WILL BE ERASED ONCE WE HAVE OUR FOR LOOP ESTABLISHED<br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <div>
+                    <p>THIS COMMENT SECTION WILL BE ERASED ONCE WE HAVE OUR FOR LOOP ESTABLISHED
+                        <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum.</p>
+                    <div>
                         <img class="imgThumbs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO_DGgxAA7f2wCcCdczW9dL2qFI2bM8m-23-S03pWDiFskghMF">
                         <img class="imgThumbs" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Flag_of_ICAO.svg/600px-Flag_of_ICAO.svg.png">
-                </div>
-            </div>
+                    </div>
+        </div>
 
         <div id="footer">
             <p>Not Copyright 2017. Kelp name and all related marks are not registed trademarks of Kelp. NEE (Non Existent Entity)</p>
@@ -122,5 +130,15 @@
     </div>
 
 </body>
+
+<script>
+    $(document).ready(function () {
+        
+        $('img.imgThumbs').click(function () {
+            $( this ).toggleClass( "imgThumbsBig" )
+        });
+
+    });
+</script>
 
 </html>

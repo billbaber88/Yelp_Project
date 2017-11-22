@@ -102,6 +102,14 @@
     margin: 2px;
 }
 
+.imgThumbsBig {
+    width: 50% !important;
+    margin: 2px;
+    text-align: center !important;
+    margin: auto;
+    display: block;
+}
+
 .comments {
     margin: 25px;
     border: solid 1px #182A53;
