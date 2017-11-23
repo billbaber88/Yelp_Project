@@ -12,9 +12,11 @@ def index(request):
     }
 
     # Calculates and returns average rating of business  #Placing on hold for now.
-    # count = 0
-    # sum = 0
-    # for business in context:
+    
+    # print context['rating_key'][0].comment
+    # for business in context["business_key"]:
+    #     count = 0
+    #     sum = 0
     #     print business
     # for x in context["rating_key"]:
     #     sum += x.rating

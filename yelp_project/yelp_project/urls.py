@@ -28,7 +28,7 @@ urlpatterns = [
 # BILL, GRANT, OR MENDEL- Whoever is going to be doing the presentation needs to input a bunch of test data into his DB. That includes multiple businesses in each category, in each city (or just choose one or two cities to demonstrate). Also hardcode business photos and user uploaded photos to some reviews.(with some variety. We're using spongebob business photos.
 
 # ----------Bill-----------
-# PRIORITY CSS for Add a New Busines Page
+# PRIORITY CSS for Add a New Business Page
 # PRIORITY change the font color for reviews so that they are more visible against the dark background.
 # 
 # NOT PRIORITY add a kelp logo or href on the login screen that links to the search page for ease of navigation (I have a href in the corner, but it's hard to spot it,)

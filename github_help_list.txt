@@ -1,5 +1,4 @@
-git branch <name> (create new branch)
-git checkout (leave master to work on new branch)
+# PERFORM THESE INSTRUCTIONS IN ORDER. DO NOT SKIP STEPS.
 
 # Constantly update github to save work
 git add .
@@ -24,7 +23,8 @@ git commit -m "<Message>"
 git push
 
 # Don't forget to leave the branch you've been working on as well as the master branch and start a new branch!
-git branch <new_name>
+git branch <name> (create new branch)
+git checkout (leave master to work on new branch)
 
 #When changes to .gitignore have been made run below command to remove files already uploaded to git.
 git rm -r --cached .
