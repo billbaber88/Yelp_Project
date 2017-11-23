@@ -14,6 +14,16 @@ class BusinessManager(models.Manager):
 
         return errors
 
+    def review_validator(self, postData):
+        errors = {}
+
+        if len(postData["comment"]) > 2000:
+            errors['comment'] = "Business reviews cannot exceed 2000 characters"
+        if len(postData["rating"]) > 5 or len(postData["rating"]) < 1:
+            errors['rating'] = "Rating must be a whole number between 1 and 5"
+        return errors
+
+
 class Business(models.Model):
     bus_name = models.CharField(max_length=255)
     bus_address = models.CharField(max_length=255)
@@ -32,3 +42,5 @@ class Review(models.Model):
     images = models.ImageField(null=True)
     business = models.ForeignKey(Business, related_name="reviews")
     user = models.ForeignKey(User, related_name="reviews")
+
+    objects = BusinessManager()
