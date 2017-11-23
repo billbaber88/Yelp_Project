@@ -33,7 +33,7 @@ def bus_results(request, bus_id):
         "bus_id" : Business.objects.get(id=bus_id),
         "rating_key" : Review.objects.filter(business=Business.objects.get(id=bus_id))
     }
-    #Try/Except so no error since there are no reviews by newly created businesses.
+    #Try/Except so no error is returned due to there being no reviews for newly created businesses.
     try:
         count = 0
         sum = 0
@@ -65,44 +65,55 @@ def add_bus(request):
             messages.error(request, errors[x])
         return redirect("/display/new_bus")
 
-
+# Page with review form
 def write_review(request, bus_id):
     if "id" in request.session:
         context = {
             "business_key" : Business.objects.get(id=bus_id)
         }
-        print "write_review view visited and succedded"
         return render(request, "business_app/write_review.html", context)
-        
     else:
-        print "write_review view visited and failed"
-        return redirect( "/bus_results.html")
+        messages.error(request, "You need to be logged in to leave a review. Please log in.")
+        return redirect( "/display/bus_results/{}".format(bus_id))
 
-
+# Handles the form data from the review page.
 def add_review(request, bus_id):
-    # Need to have validation here to ensure no SQL injection. and that no empty values present.
-    Review.objects.create(comment=request.POST["review_text"], rating=request.POST["rating"], business=Business.objects.get(id=bus_id), user=User.objects.get(id=request.session["id"])) #put requst.session username here)
-    
-    # messages.sucess["new_review"] = "Thanks for your review!"
-    print "add_review view visited"
-    return redirect("/display/write_review/{}".format(bus_id))
+    # Need to have validation here to ensure no SQL injection.
+    errors = Business.objects.review_validator(request.POST)
 
+    if len(errors) <= 0:
+        Review.objects.create(comment=request.POST["review_text"], rating=request.POST["rating"], business=Business.objects.get(id=bus_id), user=User.objects.get(id=request.session["id"]))
+        messages.success(request, "Thank you for your review!")
+        return redirect("/display/write_review/{}".format(bus_id))
+    else:
+        for x in errors:
+            messages.error(request, errors[x])
+        return redirect("/display/write_review/{}".format(bus_id))
+        
 
+# This admin page should only be accessable to admins, need to add validation for that.
 def admin(request):
     context = {
         "business_key": Business.objects.all(),
-        "rating_key" : Review.objects.all()
+        "rating_key": Review.objects.all(),
+        "user_key": User.objects.all()
     }
     return render(request, "business_app/admin.html", context)
 
-
+# Destroys a business from the DB
 def destroy(request, bus_id):
     Business.objects.get(id=bus_id).delete()
     return redirect("/display/admin")
 
-
+#Destroys a review from the DB
 def destroy_review(request, review_id):
     Review.objects.get(id=review_id).delete()
     return redirect("/display/admin")
 
 
+#Destroys a user from the DB
+def destroy_user(request, user_id):
+    User.objects.get(id=user_id).delete()
+    del request.session['id']
+    messages.success(request, "That user has been removed from the database.")
+    return redirect("/display/admin")

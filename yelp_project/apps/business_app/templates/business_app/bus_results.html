@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark " id="header">
             <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-                aria-expanded="false" aria-label="Toggle navigation" style="">
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -42,10 +42,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/display/admin">Admin Console</a>
+                        <a class="nav-link" href="{% url 'admin-page' %}"> Admin Console </a> <!-- The url for admin page is a "reverse redirect" -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/display/new_bus">Add A Business</a>
@@ -63,7 +63,6 @@
             </div>
         </nav>
 
-        <!-- Moved rating to last to make it pop more -->
         <div id="business_data">
             <!-- BUSINESS.PROFILE IMAGE -->
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/African_Union_flag.svg/600px-African_Union_flag.svg.png">
@@ -86,10 +85,11 @@
             <h4>
                 <a href="/display/write_review/{{context.bus_id.id}}">Write a Review</a>
             </h4>
+            
             {% if messages %}
             <ul class="messages">
               {% for message in messages %}
-              <li style="color:red">{{ message }}</li>
+              <li style="color:red;">{{ message }}</li>
               {% endfor %}
             </ul>
             {% endif %}

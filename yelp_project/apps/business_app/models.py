@@ -17,10 +17,19 @@ class BusinessManager(models.Manager):
     def review_validator(self, postData):
         errors = {}
 
-        if len(postData["comment"]) > 2000:
-            errors['comment'] = "Business reviews cannot exceed 2000 characters"
-        if len(postData["rating"]) > 5 or len(postData["rating"]) < 1:
-            errors['rating'] = "Rating must be a whole number between 1 and 5"
+        # review_text is the name of the textarea box for adding reviews on the write_review.html page
+        if len(postData["review_text"]) < 10:
+            errors['review'] = "Business reviews must be longer than 10 characters"
+
+        if len(postData["review_text"]) > 2000:
+            errors['review2'] = "Business reviews cannot exceed 2000 characters"
+            
+
+        if len(postData["rating"]) < 1:
+            errors['rating'] = "Rating cannot be left blank"
+
+        if int(postData["rating"]) > 5 or int(postData["rating"]) < 1: #input box stores rating as a str, must convert to int type before validating for correct value.
+            errors['rating1'] = "Rating must be a whole number between 1 and 5"
         return errors
 
 

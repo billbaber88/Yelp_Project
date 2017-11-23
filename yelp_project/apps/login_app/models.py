@@ -11,8 +11,8 @@ Email_Regex = re.compile(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
 
 class userManager(models.Manager):
 
-# Registration Validation**********************************
-    def validate (self, postData):
+# ************************************Registration Validation**********************************
+    def register_validate (self, postData):
         errors = []
         if len(User.objects.filter(email = postData['email'])) > 0:
             errors.append("User email already exists")
@@ -33,25 +33,22 @@ class userManager(models.Manager):
         else:
             return (False, errors)
 
-    def loginval(self, postData): # LOGIN VALIDATION******************************************
+    def loginval(self, postData): # *****************************LOGIN VALIDATION******************************************
         errors = []
         if len(postData['email']) < 1 or len(postData['password']) < 1:
             errors.append("Email and password must be entered to login")
             return (False, errors)
         if 'email' in postData and 'password' in postData:
             try:
-                print 50*('8')
                 user = User.objects.get(email = postData['email'])#userManage acceses the database using .get (finds that one user's object)
             except User.DoesNotExist: #if the user doesnt exist from the .get(.get returns nothin, this 'except' prevents an error message)
-                print 50*('4')
-                errors.append("User does not exit, try registering")
+                errors.append("User does not exist, try registering or entering your email again")
                 return (False, errors)
         #password field/check
-        pw_match = bcrypt.hashpw(postData['password'].encode(), user.password.encode())
-        if pw_match == user.password:
+        if bcrypt.checkpw(postData['password'].encode(), user.password.encode()) == True:
             return (True, user)
         else:
-            errors.append("User login passwords do not match!")
+            errors.append("Login Password is incorrect! Please try again")
             return (False, errors)
 
 class User(models.Model):
