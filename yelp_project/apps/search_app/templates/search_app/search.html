@@ -16,6 +16,13 @@
 
 <body>
     <div class="wrapper">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li style="color:fuchsia">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             <div class="logreg">
                     <a class="login" href="/login">
                         <b>Login</b>
@@ -25,6 +32,7 @@
                 </div>
         <div class="logreg">
             <a class="login" href="/login/userlogout"><b>Logout</b></a>
+            <!-- <p>Welcome, {{ user.first_name }}</p> -->
         </div>
         
     <!-- kelp white background blue border radius

@@ -8,6 +8,9 @@ def login_index(request):
     return render(request,'login_app/login_index.html')
 
 def register(request):
+    if 'id' in request.session:
+        messages.error(request, "There is already a user logged in")
+        return redirect('/login')
     last_user = User.objects.last()
     if request.method == 'GET':
         return redirect ('/login')
@@ -60,12 +63,11 @@ def print_ses(request):
 
 
 def userlogout(request):
-    try:
-        messages.add_message(request, messages.INFO,'You have logged out')
-        del request.session
+    if 'id' not in request.session:
         return redirect('/search')
-    except ValueError, KeyError:
-        return redirect('/login')
+    messages.add_message(request, messages.INFO,'You have logged out')
+    del request.session['id']
+    return redirect('/login')
 
 def show(request, user_id):
     context = {

@@ -4,6 +4,7 @@ import re
 import bcrypt
 from datetime import date, datetime
 from time import strptime
+from django.shortcuts import render, redirect
 
 Name_Regex = re.compile(r'^[A-Za-z ]+$')
 Email_Regex = re.compile(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
