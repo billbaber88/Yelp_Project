@@ -7,8 +7,23 @@ from ..login_app.models import User #Imports User table from Login app
 # Returns a list of businesses that match the users search paramaters
 def index(request):
     context = {
-        "business_key" : Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]) #.filter(bus_category=request.POST["bus_category"])
+        "business_key" : Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]), #.filter(bus_category=request.POST["bus_category"])
+        # "rating_key" : Review.objects.filter(business=Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]))
     }
+
+    # Calculates and returns average rating of business  #Placing on hold for now.
+    # count = 0
+    # sum = 0
+    # for business in context:
+    #     print business
+    # for x in context["rating_key"]:
+    #     sum += x.rating
+    #     count += 1
+    #     # print x
+    # avg = sum/count
+    # print x
+    # print avg
+    # print count
     return render(request, "business_app/index.html", context)
 
 
@@ -18,15 +33,17 @@ def bus_results(request, bus_id):
         "bus_id" : Business.objects.get(id=bus_id),
         "rating_key" : Review.objects.filter(business=Business.objects.get(id=bus_id))
     }
-    count = 0
-    sum = 0
-    
-    for x in context["rating_key"]:
-        sum += x.rating
-        count += 1
-    avg = sum/count
- 
-    return render(request, "business_app/bus_results.html", {"context": context, "avg": avg}) #create dict to pass in 2 variables
+    #Try/Except so no error since there are no reviews by newly created businesses.
+    try:
+        count = 0
+        sum = 0
+        for x in context["rating_key"]:
+            sum += x.rating
+            count += 1
+        avg = sum/count
+        return render(request, "business_app/bus_results.html", {"context": context, "avg": avg}) #created dict to pass in 2 variables
+    except ZeroDivisionError:
+        return render(request, "business_app/bus_results.html", {"context": context, "avg": "No Rating Yet"})
 
 # Form to create a new Business
 def new_bus(request):
@@ -50,17 +67,24 @@ def add_bus(request):
 
 
 def write_review(request, bus_id):
-    context = {
-        "business_key" : Business.objects.get(id=bus_id)
-    }
-    return render(request, "business_app/write_review.html", context)
+    if "id" in request.session:
+        context = {
+            "business_key" : Business.objects.get(id=bus_id)
+        }
+        print "write_review view visited and succedded"
+        return render(request, "business_app/write_review.html", context)
+        
+    else:
+        print "write_review view visited and failed"
+        return redirect( "/bus_results.html")
 
 
 def add_review(request, bus_id):
-    # Need to have validation here to ensure no SQL injection. and that no empty values
+    # Need to have validation here to ensure no SQL injection. and that no empty values present.
     Review.objects.create(comment=request.POST["review_text"], rating=request.POST["rating"], business=Business.objects.get(id=bus_id), user=User.objects.get(id=request.session["id"])) #put requst.session username here)
     
     # messages.sucess["new_review"] = "Thanks for your review!"
+    print "add_review view visited"
     return redirect("/display/write_review/{}".format(bus_id))
 
 

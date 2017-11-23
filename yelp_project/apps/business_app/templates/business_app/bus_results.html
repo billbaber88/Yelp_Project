@@ -57,7 +57,7 @@
                     </a> |
                     <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                    <a class="anchor_tag" href="#">Logout</a>
+                    <a class="anchor_tag" href="/login/userlogout">Logout</a>
                 </div>
 
             </div>
@@ -77,15 +77,22 @@
             <h5>Category: </h5>
             <p> {{ context.bus_id.bus_category }} </p>
             <br>
-            <h5> Average Rating: {{ context.avg }}</h5>
+            <h5> Average Rating: {{ avg }}/5</h5>
             <p> </p>
             <br>
             <h5>Description: </h5>
             <p>{{ context.bus_id.description|truncatechars:100 }}</p>
             
             <h4>
-                <a href="/display/write_review/{{bus_id.id}}">Write a Review</a>
+                <a href="/display/write_review/{{context.bus_id.id}}">Write a Review</a>
             </h4>
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+              <li style="color:red">{{ message }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
 
         </div>
 
@@ -97,7 +104,7 @@
         </div>
 
         <!-- ORDER BY DESCENDING FOR AS MANY AS WE HAVE -->
-        {% for review in rating_key %}
+        {% for review in context.rating_key %}
         <div class="comments">
             <h2 class="ib rating">Rating:{{ review.rating }}/5</h2>
             <p>{{ review.comment }}</p>

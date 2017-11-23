@@ -25,25 +25,26 @@ urlpatterns = [
 # --------------TO DO ---------------------------
 # 1) Popup login on landing page if no username in session.
 # 2) ** Display image on business page.
-# 3) ** Display profile pic on profile page.
-# 4) Standardize color and styling IN PROGRESS
-# 5) **Ensure RWD across all browsers.
+# 3) ** Display profile pic on profile page. COMPLETED
+# 4) Standardize color and styling COMPLETED
+# 5) **Ensure RWD across all browsers. COMPLETED
 # 6) Integrate with Google Place API
 # 6a) Google Search API
 # 7) Insert awesome Easter Egg (circa Web 1.0) IN PROGRESS
 # 8) Ability to add new Businesses COMPLETED
-# 10)**  average rating + sort by highest rated
+# 10)**  average rating + sort by highest rated COMPLETED
 # 11)**  Download background images and store in DB.
 # 12) Add a checkbox for businesses that allows them (only) to add new businesses
-# 13)**  Allow comments and Ratings
-# 14) ** validate new business entries.
-# 15) ** validate Integer Field to only accept from 1 - 5.
+# 13)**  Allow comments and Ratings COMPLETED
+# 14) ** validate new business entries. IN PROGRESS
+# 15) ** validate Integer Field to only accept from 1 - 5. IN PROGRESS
 
 # ----Mendel-----
 # Validating new business entries COMPLETED
 # Connecting login href's to login app COMPLETED
 # ratings = stars
 # Validate rating to only allow 1-5 integers
+# Validate Reviews
 
 # -----Grant-------
 # Finishing users profile page
