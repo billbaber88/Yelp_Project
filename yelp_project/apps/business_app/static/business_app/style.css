@@ -142,6 +142,9 @@
     color: #7B1E19;
 }
 
+.comments > h5 {
+    color: rgb(5, 17, 41);
+}
 .posting {
     width: 50%;
     margin: auto;

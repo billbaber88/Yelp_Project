@@ -23,40 +23,41 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/search">Kelp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark " id="header">
+            <a class="navbar-brand" href="/search">Kelp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/search">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin-page' %}">Admin Console</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="new_bus">Add A Business</a>
-                </li>
-            </ul>
-            <div class="logreg">
-                <a class="login" href="/login">
-                    <b>Login</b>
-                </a> |
-                <a class="button" href="/login">Register</a>
-                <img src="{% static 'search_app\images\kelplogo_logo_only.png' %}">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/search">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin-page' %}"> Admin Console </a> <!-- The url for admin page is a "reverse redirect" -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/display/new_bus">Add A Business</a>
+                    </li>
+                </ul>
+                <div class="logreg">
+                    <a class="login" href="/login">
+                        <b>Login</b>
+                    </a> |
+                    <a class="button" href="/login">Register</a>
+                    <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
+                    <a class="anchor_tag" href="/login/userlogout">Logout</a>
+                </div>
+
             </div>
-            <a class="anchor_tag" href="/login/userlogout">Logout</a>
-        </div>
-    </nav>
+        </nav>
     <div id="add_bus_form">
         <form action="add_bus" method="POST">
             {% csrf_token %}

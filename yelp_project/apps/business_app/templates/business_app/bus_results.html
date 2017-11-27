@@ -106,8 +106,8 @@
         <!-- ORDER BY DESCENDING FOR AS MANY AS WE HAVE -->
         {% for review in context.rating_key %}
         <div class="comments">
-            <h2 class="ib rating">Rating:{{ review.rating }}/5</h2>
-            <p>{{ review.comment }}</p>
+            <h2 class="ib rating">Rating:{{ review.rating }}/5</h2><br>
+            <h5><b>{{ review.comment }}</b></h5>
             <div>
                 <img class="imgThumbs" src="https://media2.fdncms.com/chicago/imager/spongebob-squarepants-braces-for-an-epic-f/u/original/16569315/1424156856-the-spongebob-squarepants-movie-sponge-out-of-water-movie-review-imag.jpg">
                 <img class="imgThumbs" src="https://vignette3.wikia.nocookie.net/characters/images/c/cc/Latest_%282%29-0.jpg/revision/latest?cb=20141230022624">
