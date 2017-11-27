@@ -21,36 +21,36 @@ urlpatterns = [
     url(r'^login/', include('apps.login_app.urls')), #login and registration
 ]
 
+# ----Mendel-----
+# BILL, GRANT, OR MENDEL- Whoever is going to be doing the presentation needs to input a bunch of test data into his DB. That includes multiple businesses in each category, in each city (or just choose one or two cities to demonstrate). Also hardcode business photos and user uploaded photos to some reviews(with some variety. We're using spongebob business photos.
+
+# -----Grant-------
+# BILL, GRANT, OR MENDEL- Whoever is going to be doing the presentation needs to input a bunch of test data into his DB. That includes multiple businesses in each category, in each city (or just choose one or two cities to demonstrate). Also hardcode business photos and user uploaded photos to some reviews.(with some variety. We're using spongebob business photos.
+
+# ----------Bill-----------
+# PRIORITY CSS for Add a New Busines Page
+# PRIORITY change the font color for reviews so that they are more visible against the dark background.
+# 
+# NOT PRIORITY add a kelp logo or href on the login screen that links to the search page for ease of navigation (I have a href in the corner, but it's hard to spot it,)
+# NOT PRIORITY Fix login/register and logout buttons so that they are horizontally stacked, not vertically 
+# NOT PRIORITY If possible, make the "city" entry on the registration page a drop down selection with our three options (Atlantis, Dead Sea, and Mariana Trench (value="Mariana")). I tried to do it, but I'm not sure how that login form works.
+# 
+# BILL, GRANT, OR MENDEL- Whoever is going to be doing the presentation needs to input a bunch of test data into his DB. That includes multiple businesses in each category, in each city (or just choose one or two cities to demonstrate). Also hardcode business photos and user uploaded photos to some reviews.(with some variety. We're using spongebob business photos.
+
 
 # --------------TO DO ---------------------------
 # 1) Popup login on landing page if no username in session.
-# 2) ** Display image on business page.
-# 3) ** Display profile pic on profile page.
-# 4) Standardize color and styling IN PROGRESS
-# 5) **Ensure RWD across all browsers.
+# 2) ** Display image on business page. COPMLETE
+# 3) ** Display profile pic on profile page. COMPLETED
+# 4) Standardize color and styling COMPLETED
+# 5) **Ensure RWD across all browsers. COMPLETED
 # 6) Integrate with Google Place API
 # 6a) Google Search API
 # 7) Insert awesome Easter Egg (circa Web 1.0) IN PROGRESS
 # 8) Ability to add new Businesses COMPLETED
-# 10)**  average rating + sort by highest rated
+# 10)**  average rating + sort by highest rated COMPLETED
 # 11)**  Download background images and store in DB.
 # 12) Add a checkbox for businesses that allows them (only) to add new businesses
-# 13)**  Allow comments and Ratings
-# 14) ** validate new business entries.
-# 15) ** validate Integer Field to only accept from 1 - 5.
-
-# ----Mendel-----
-# Validating new business entries COMPLETED
-# Connecting login href's to login app COMPLETED
-# ratings = stars
-# Validate rating to only allow 1-5 integers
-
-# -----Grant-------
-# Finishing users profile page
-# Create comment and ratings ability for users to rate businesses
-# Images into user profile
-# Images into businesses profile
-# Images into DB
-
-# ----------Bill-----------
-# Continuing CSS
+# 13)**  Allow comments and Ratings COMPLETED
+# 14) ** validate new business entries. COMPLETE
+# 15) ** validate Integer Field to only accept from 1 - 5. COMPLETE

@@ -31,17 +31,22 @@
         <nav class="navbar navbar-expand-lg navbar-dark " id="header">
             <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-                aria-expanded="false" aria-label="Toggle navigation" style="">
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/search">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/display/admin">Admin Console</a>
+                        <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin-page' %}">Admin Console</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/display/new_bus">Add A Business</a>
@@ -53,7 +58,7 @@
                     </a> |
                     <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                    <a class="anchor_tag" href="#">Logout</a>
+                    <a class="anchor_tag" href="/login/userlogout">Logout</a>
                 </div>
 
             </div>
@@ -62,7 +67,7 @@
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-            <li style="color:green">{{ message }}</li>
+            <li style="color:fuchsia;">{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
@@ -70,30 +75,26 @@
         <div class="comments2">
             <h1>{{ user.first_name }} {{ user.last_name }}'s Profile Page</h1>
             <h4>Location: {{ user.user_city }}</h4>
-            <h4>Kelping since: {{ user.created_at }}</h4>
+            <h4>Kelping Since: {{ user.created_at }}</h4>
         </div>
         <hr>
         <div class="comments2">
             <h2>Recent Activity:</h2>
-            <!-- FOR TITLE IN TITLES -->
-            <!-- ORDER BY DESCENDING FOR AS MANY AS WE HAVE -->
+            {% for review in rating_key %}
             <div class="comments">
-                <h2 class="ib">USER.TITLE OF REVIEW #LAST</h2>
-                    <h2 class="ib rating">Rating: USER.RATING/5</h2>
-                        <p>USER.COMMENT
-                            <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div>
-                            <img class="imgThumbs" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
-                            <img class="imgThumbs" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
-                            <img class="imgThumbs" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
-                        </div>
+                <h2 class="ib rating">Rating:{{ review.rating }}/5</h2>
+                <p>{{ review.comment }}</p>
+                <div>
+                    <img class="imgThumbs" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_600x400.jpg">
+                    <img class="imgThumbs" src="http://experimenta.org/wp-content/uploads/2015/08/drone600400.jpg">
+                    <img class="imgThumbs" src="https://static2.visitestonia.com/images/3069774/600_400_false_false_8ba4ccd5b4bcad5c4440a083d9e50bd8.jpg">
+                </div>
             </div>
+            {% endfor %}
 
         </div>
     </div>
+</body>
 
 </html>
+

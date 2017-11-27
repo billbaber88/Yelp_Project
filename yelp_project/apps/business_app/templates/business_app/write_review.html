@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark " id="header">
             <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-                aria-expanded="false" aria-label="Toggle navigation" style="">
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -41,13 +41,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/display/admin">Admin Console</a>
+                        <a class="nav-link" href="{% url 'admin-page' %}">Admin Console</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="new_bus">Add A Business</a>
+                        <a class="nav-link" href="/display/new_bus">Add A Business</a>
                     </li>
                 </ul>
                 <div class="logreg">
@@ -56,27 +56,27 @@
                     </a> |
                     <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                    <a class="anchor_tag" href="/userlogout">Logout</a>
+                    <a class="anchor_tag" href="/login/userlogout">Logout</a>
                 </div>
             </div>
         </nav>
-
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li style="color:fuchsia;">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
         <div id="review_form">
-            <h3>Write a review for {{ business_key.bus_name }}</h3>
+            <h3>Write a review for <a href="/display/bus_results/{{business_key.id}}">{{ business_key.bus_name }}</a></h3>
             <form action="/display/add_review/{{ business_key.id }}" method="POST">
                 {% csrf_token %}
                 <textarea name="review_text" cols="30" rows="10" placeholder="Write Your Review Here!"></textarea>
                 <input type="number" name="rating" placeholder="Rate from 1-5">
-                <input class="submit_seal" type="image" src="{% static 'search_app\images\seal_logo2_white.png' %}" alt="Submit" >
+                <input type="submit" value="Submit Review">
             </form>
         </div>
-        {% if messages %}
-        <ul class="messages">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
+        
     </div>
 
     <div id="footer">

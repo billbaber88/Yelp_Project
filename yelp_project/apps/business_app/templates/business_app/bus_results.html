@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark " id="header">
             <a class="navbar-brand" href="/search">Kelp</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-                aria-expanded="false" aria-label="Toggle navigation" style="">
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -42,10 +42,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="/login/user/{{ request.session.id }}">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/display/admin">Admin Console</a>
+                        <a class="nav-link" href="{% url 'admin-page' %}"> Admin Console </a> <!-- The url for admin page is a "reverse redirect" -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/display/new_bus">Add A Business</a>
@@ -57,35 +57,42 @@
                     </a> |
                     <a class="button" href="/login">Register</a>
                     <img src="{% static 'search_app\images\seal_logo2_white.png' %}">
-                    <a class="anchor_tag" href="#">Logout</a>
+                    <a class="anchor_tag" href="/login/userlogout">Logout</a>
                 </div>
 
             </div>
         </nav>
 
-        <!-- Moved rating to last to make it pop more -->
         <div id="business_data">
             <!-- BUSINESS.PROFILE IMAGE -->
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/African_Union_flag.svg/600px-African_Union_flag.svg.png">
-            <h2>{{ bus_id.bus_name }} </h2>
+            <h2>{{ context.bus_id.bus_name }} </h2>
             <h5>Address: </h5>
-            <p> {{ bus_id.bus_address }} </p>
+            <p> {{ context.bus_id.bus_address }} </p>
             <br>
             <h5>City: </h5>
-            <p> {{ bus_id.bus_city }} </p>
+            <p> {{ context.bus_id.bus_city }} </p>
             <br>
             <h5>Category: </h5>
-            <p> {{ bus_id.bus_category }} </p>
+            <p> {{ context.bus_id.bus_category }} </p>
             <br>
-            <h5> Average Rating: {{ avg }}</h5>
+            <h5> Average Rating: {{ avg }}/5</h5>
             <p> </p>
             <br>
             <h5>Description: </h5>
-            <p>{{ bus_id.description|truncatechars:100 }}</p>
+            <p>{{ context.bus_id.description|truncatechars:100 }}</p>
             
             <h4>
-                <a href="/display/write_review/{{bus_id.id}}">Write a Review</a>
+                <a href="/display/write_review/{{context.bus_id.id}}">Write a Review</a>
             </h4>
+            
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+              <li style="color:red;">{{ message }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
 
         </div>
 
@@ -97,7 +104,7 @@
         </div>
 
         <!-- ORDER BY DESCENDING FOR AS MANY AS WE HAVE -->
-        {% for review in rating_key %}
+        {% for review in context.rating_key %}
         <div class="comments">
             <h2 class="ib rating">Rating:{{ review.rating }}/5</h2>
             <p>{{ review.comment }}</p>
