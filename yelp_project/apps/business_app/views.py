@@ -6,10 +6,10 @@ from ..login_app.models import User #Imports User table from Login app
 
 # Returns a list of businesses that match the users search paramaters
 def index(request):
-    context = {
-        "business_key" : Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]) #.filter(bus_category=request.POST["bus_category"])
-    }
-    return render(request, "business_app/index.html", context)
+    # context = {
+    #     "business_key" : Business.objects.filter(bus_city=request.POST["bus_city"], bus_category=request.POST["bus_category"]) #.filter(bus_category=request.POST["bus_category"])
+    # }
+    return render(request, "business_app/index.html")
 
 
 # This view returns the business that the user clicked on.
@@ -24,7 +24,7 @@ def bus_results(request, bus_id):
     for x in context["rating_key"]:
         sum += x.rating
         count += 1
-    avg = sum/count
+    # avg = sum/count
  
     return render(request, "business_app/bus_results.html", context) #create dict to pass in 2 variables
 
