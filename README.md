@@ -2,4 +2,5 @@ Yelp.com static clone using Python and the Django backend framework with integra
 Styling done using Twitter Bootstrap and some jQuery. 
 Contains validation for login, new business entries, and reviews.
 Database relationships between users, reviews, and businesses. 
-Created at Coding Dojo by Bill Baber, Grant Overby, and Mendel Bakaleynik.
+
+Created at Coding Dojo by Mendel Bakaleynik, Bill Baber, and Grant Overby.
