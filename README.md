@@ -1,9 +1,10 @@
-Yelp.com static clone using Python and the Django backend framework with integrated SQLite ORM database.
+Yelp.com static clone using Python and the Django backend framework with integrated SQLite ORM database. Created in 3-4 days during shortened Coding Dojo Project Week.
 
-Styling done using Twitter Bootstrap and some jQuery. 
+Styling done using Twitter Bootstrap, CSS3, and jQuery. 
 
 Contains validation for login, new business entries, and reviews.
 
-COntains database relationships between users, reviews, and businesses. 
+Contains database relationships between users, reviews, and businesses. 
 
-Created at Coding Dojo by Mendel Bakaleynik, Bill Baber, and Grant Overby.
+Project Manager: Mendel Bakaleynik.
+Developers: Bill Baber, Mendel Bakaleynik, and Grant Overby.
