@@ -2,5 +2,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^search$', views.search),
+    url(r'^search$', views.search), #for redirects that were already established
+    url(r'^$', views.search) #for the first time visiting the page
 ]
